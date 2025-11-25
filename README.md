@@ -1,6 +1,9 @@
 # AW_MediaQS
 
-Browser extension for quick saving, opening and copying media files with customizable hotkeys.
+Browser extension for quick saving, opening and copying media files with customizable hotkeys without context menu. Just move mouse cursor on media and push hotkey!
+Compatibly with chrome and operaGX.
+Custom folders work on Windows. Mac and Linux not tested.
+The extension was made according to my need, but it may be useful to someone with the same needs.
 
 ## Features
 - 🖼️ **Save media files** with one click
@@ -26,11 +29,11 @@ Browser extension for quick saving, opening and copying media files with customi
 ## Privacy
 This extension does not collect any user data. All settings are stored locally.
 
-[Privacy Policy](https://YOUR_USERNAME.github.io/aw-mediaqs/privacy.html)
+[Privacy Policy](https://github.com/2biteWolf/AW_mediaQS/privacy.html)
 
 ## Links
-- [GitHub](https://github.com/YOUR_USERNAME)
-- [Itch.io](https://YOUR_USERNAME.itch.io)
+- [GitHub](https://github.com/2biteWolf)
+- [Itch.io](https://2bitewolfart.itch.io)
 
 ## License
 MIT License
