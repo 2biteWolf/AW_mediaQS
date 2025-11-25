@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Privacy Policy - AW_MediaQS</title>
+    <meta charset="utf-8">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .lang { display: none; }
+        .lang.active { display: block; }
+        .lang-buttons { margin: 20px 0; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+        h1 { color: #333; border-bottom: 2px solid #00ff00; padding-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="lang-buttons">
+        <button onclick="showLang('en')">English</button>
+        <button onclick="showLang('ru')">Русский</button>
+    </div>
+
+    <div id="en" class="lang active">
+        <h1>Privacy Policy for AW_MediaQS</h1>
+        <p><strong>Last updated:</strong> 2024</p>
+        
+        <h2>Data Collection</h2>
+        <p>The extension does NOT collect or transmit:</p>
+        <ul>
+            <li>Personal user data</li>
+            <li>Browser history</li>
+            <li>User files</li>
+            <li>Information from visited websites</li>
+            <li>Any tracking information</li>
+        </ul>
+
+        <h2>Data Storage</h2>
+        <p>All settings are stored locally in your browser using Chrome Storage API.</p>
+
+        <h2>Permissions</h2>
+        <ul>
+            <li><code>activeTab</code> - access to current tab for media detection</li>
+            <li><code>storage</code> - save extension settings</li>
+            <li><code>downloads</code> - download media files</li>
+            <li><code>clipboardWrite</code> - copy links to clipboard</li>
+            <li><code>clipboardRead</code> - copy media files to clipboard</li>
+        </ul>
+
+        <h2>Contact</h2>
+        <p>For questions: https://github.com/2biteWolf/AW_mediaQS/issues
+    </div>
+
+    <div id="ru" class="lang">
+        <h1>Политика конфиденциальности AW_MediaQS</h1>
+        <p><strong>Последнее обновление:</strong> 2024</p>
+        
+        <h2>Сбор данных</h2>
+        <p>Расширение НЕ собирает и не передает:</p>
+        <ul>
+            <li>Личные данные пользователя</li>
+            <li>Историю браузера</li>
+            <li>Файлы пользователя</li>
+            <li>Информацию с посещаемых сайтов</li>
+            <li>Данные для отслеживания</li>
+        </ul>
+
+        <h2>Хранение данных</h2>
+        <p>Все настройки сохраняются локально в браузере пользователя через Chrome Storage API.</p>
+
+        <h2>Разрешения</h2>
+        <ul>
+            <li><code>activeTab</code> - доступ к текущей вкладке для обнаружения медиа</li>
+            <li><code>storage</code> - сохранение настроек расширения</li>
+            <li><code>downloads</code> - загрузка медиафайлов</li>
+            <li><code>clipboardWrite</code> - копирование ссылок в буфер</li>
+            <li><code>clipboardRead</code> - копирование медиафайлов в буфер</li>
+        </ul>
+
+        <h2>Контакты</h2>
+        <p>https://github.com/2biteWolf/AW_mediaQS/issues</p>
+    </div>
+
+    <script>
+        function showLang(lang) {
+            document.querySelectorAll('.lang').forEach(el => el.classList.remove('active'));
+            document.getElementById(lang).classList.add('active');
+        }
+    </script>
+</body>
+</html>
