@@ -32,7 +32,7 @@ p.s. i just wan't to pay 5$ to google for deploy this in store for free
 ## Privacy
 This extension does not collect any user data. All settings are stored locally.
 
-[Privacy Policy](https://github.com/2biteWolf/AW_mediaQS/privacy.html)
+[Privacy Policy](https://2bitewolf.github.io/AW_mediaQS/)
 
 ## Support
 For issues and questions, please use [GitHub Issues](https://github.com/2biteWolf/AW_mediaQS/issues)
