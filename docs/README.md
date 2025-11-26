@@ -24,12 +24,12 @@ p.s. i just wan't to pay 5$ to google for deploy this in store for free
 - Copy media: `Ctrl+Shift+C`
 
 ## Installation
-# For chrome
+### For chrome
 1. Download or clone this repository
 2. Open Chrome and go to `chrome://extensions/`
 3. Enable "Developer mode"
 4. Click "Load unpacked" and select the extension folder
-# For operaGX
+### For operaGX
 1. Download or clone this repository
 2. Open OperaGX and go to `opera://extensions`
 3. Just drop .crx file in tap space and click "install"
