@@ -5,6 +5,8 @@ Compatibly with chrome and operaGX.
 Custom folders work on Windows. Mac and Linux not tested.
 The extension was made according to my need, but it may be useful to someone with the same needs.
 
+**IMPORTANT** before start saving set hotkeys in settings
+
 p.s. i just wan't to pay 5$ to google for deploy this in store for free
 
 ## Features
@@ -21,7 +23,6 @@ p.s. i just wan't to pay 5$ to google for deploy this in store for free
 ## Default Hotkeys
 - Open media: `Ctrl+Shift+U`
 - Save media: `Ctrl+Shift+S`
-- Copy media: `Ctrl+Shift+C`
 
 ## Installation
 ### For chrome
