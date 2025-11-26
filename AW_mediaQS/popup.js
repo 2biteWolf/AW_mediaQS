@@ -3,58 +3,71 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     // 1. Сначала объявляем ВСЕ функции
     async function loadSettings() {
-        try {
-            const result = await chrome.storage.sync.get({
-                openKey: 'Ctrl+Shift+U',
-                saveKey: 'Ctrl+Shift+S',
-                copyKey: 'Ctrl+Shift+C',
-                customPathEnabled: false,
-                customPath: '',
-                renameEnabled: false,
-                renameTemplate: 'media_{timestamp}_{counter}',
-                openInCurrentTab: false,
-                copyMediaFile: false
-            });
+    try {
+        // Загружаем актуальные комбинации из chrome.commands
+        const commands = await new Promise(resolve => {
+            chrome.commands.getAll(resolve);
+        });
 
-            // Обновляем отображение комбинаций клавиш
-            if (openKeyDisplay) openKeyDisplay.textContent = result.openKey;
-            if (saveKeyDisplay) saveKeyDisplay.textContent = result.saveKey;
-            if (copyKeyDisplay) copyKeyDisplay.textContent = result.copyKey;
-
-            // Обновляем чекбоксы
-            if (highlightCheckbox) highlightCheckbox.checked = result.highlightEnabled !== false;
-            if (openInCurrentTabCheckbox) openInCurrentTabCheckbox.checked = result.openInCurrentTab;
-            if (customPathCheckbox) customPathCheckbox.checked = result.customPathEnabled;
-            if (renameCheckbox) renameCheckbox.checked = result.renameEnabled;
-            if (copyMediaFileCheckbox) copyMediaFileCheckbox.checked = result.copyMediaFile;
-
-            // Обновляем пути и шаблоны
-            if (customPath) customPath.value = result.customPath || '';
-            if (renameTemplate) renameTemplate.value = result.renameTemplate;
-
-            // Показываем/скрываем дополнительные настройки
-            if (pathSettings) {
-                pathSettings.style.display = result.customPathEnabled ? 'block' : 'none';
+        const customShortcuts = {};
+        commands.forEach(command => {
+            if (command.name === 'open_media') {
+                customShortcuts.openKey = command.shortcut || 'Ctrl+Shift+U';
+            } else if (command.name === 'save_media') {
+                customShortcuts.saveKey = command.shortcut || 'Ctrl+Shift+S';
+            } else if (command.name === 'copy_media_url') {
+                customShortcuts.copyKey = command.shortcut || 'Ctrl+Shift+C';
             }
-            if (renameSettings) {
-                renameSettings.style.display = result.renameEnabled ? 'block' : 'none';
-            }
+        });
 
-            // Обновляем отображение пути
-            if (folderNameSpan) {
-                folderNameSpan.textContent = result.customPath || 'AW_Media';
-            }
+        // Загружаем остальные настройки
+        const result = await chrome.storage.sync.get({
+            customPathEnabled: false,
+            customPath: '',
+            renameEnabled: false,
+            renameTemplate: 'media_{timestamp}_{counter}',
+            openInCurrentTab: false,
+            copyMediaFile: false
+        });
 
-            // Обновляем пример имени файла
-            updateRenameExample();
+        // Обновляем отображение комбинаций клавиш из chrome.commands
+        if (openKeyDisplay) openKeyDisplay.textContent = customShortcuts.openKey;
+        if (saveKeyDisplay) saveKeyDisplay.textContent = customShortcuts.saveKey;
+        if (copyKeyDisplay) copyKeyDisplay.textContent = customShortcuts.copyKey;
 
-            console.log('AW_MediaQS: Настройки загружены');
-        } catch (error) {
-            console.error('AW_MediaQS: Ошибка загрузки настроек:', error);
-            showStatus('Error loading settings: ' + error.message, 'error');
+        // Обновляем чекбоксы
+        if (highlightCheckbox) highlightCheckbox.checked = result.highlightEnabled !== false;
+        if (openInCurrentTabCheckbox) openInCurrentTabCheckbox.checked = result.openInCurrentTab;
+        if (customPathCheckbox) customPathCheckbox.checked = result.customPathEnabled;
+        if (renameCheckbox) renameCheckbox.checked = result.renameEnabled;
+        if (copyMediaFileCheckbox) copyMediaFileCheckbox.checked = result.copyMediaFile;
+
+        // Обновляем пути и шаблоны
+        if (customPath) customPath.value = result.customPath || '';
+        if (renameTemplate) renameTemplate.value = result.renameTemplate;
+
+        // Показываем/скрываем дополнительные настройки
+        if (pathSettings) {
+            pathSettings.style.display = result.customPathEnabled ? 'block' : 'none';
         }
-    }
+        if (renameSettings) {
+            renameSettings.style.display = result.renameEnabled ? 'block' : 'none';
+        }
 
+        // Обновляем отображение пути
+        if (folderNameSpan) {
+            folderNameSpan.textContent = result.customPath || 'AW_Media';
+        }
+
+        // Обновляем пример имени файла
+        updateRenameExample();
+
+        console.log('AW_MediaQS: Настройки загружены, хоткеи:', customShortcuts);
+    } catch (error) {
+        console.error('AW_MediaQS: Ошибка загрузки настроек:', error);
+        showStatus('Error loading settings: ' + error.message, 'error');
+    }
+}
     function extractFolderName(fullPath) {
         const normalizedPath = fullPath.replace(/[\\/]/g, '/');
         const pathParts = normalizedPath.split('/').filter(part => part.trim() !== '');
