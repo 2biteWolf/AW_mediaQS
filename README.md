@@ -5,6 +5,8 @@ Compatibly with chrome and operaGX.
 Custom folders work on Windows. Mac and Linux not tested.
 The extension was made according to my need, but it may be useful to someone with the same needs.
 
+p.s. i just wan't to pay 5$ to google for deploy this in store for free
+
 ## Features
 - 🖼️ **Save media files** with one click
 - 🔗 **Open images/videos** in new tabs
@@ -14,7 +16,7 @@ The extension was made according to my need, but it may be useful to someone wit
 - 📝 **Auto-renaming** with templates
 - 📂 **Custom save folders**
 - 🎯 **Media highlighting** on hover
-- 🌍 **Multi-language** support (EN/RU/ZH)
+- 🌍 **Multi-language** support (EN/RU)
 
 ## Default Hotkeys
 - Open media: `Ctrl+Shift+U`
@@ -24,12 +26,16 @@ The extension was made according to my need, but it may be useful to someone wit
 ## Installation
 1. Download or clone this repository
 2. Open Chrome and go to `chrome://extensions/`
-3. Just drop .crx file into extensions tab
+3. Enable "Developer mode"
+4. Click "Load unpacked" and select the extension folder
 
 ## Privacy
 This extension does not collect any user data. All settings are stored locally.
 
 [Privacy Policy](https://github.com/2biteWolf/AW_mediaQS/privacy.html)
+
+## Support
+For issues and questions, please use [GitHub Issues](https://github.com/2biteWolf/AW_mediaQS/issues)
 
 ## Links
 - [GitHub](https://github.com/2biteWolf)

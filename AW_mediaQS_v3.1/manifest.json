@@ -1,0 +1,63 @@
+{
+  "manifest_version": 3,
+  "name": "AW_MediaQuickSave",
+  "version": "3.1",
+  "description": "Browser extension for quick saving, opening and copying media files with customizable hotkeys without context menu.",
+  "homepage_url": "https://github.com/2biteWolf",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "downloads",
+    "clipboardWrite",
+    "clipboardRead"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AW_MediaQS - Media Quick Actions",
+    "default_icon": {
+      "16": "images/icon128.png",
+      "32": "images/icon128.png",
+      "48": "images/icon128.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon128.png",
+    "32": "images/icon128.png",
+    "48": "images/icon128.png",
+    "128": "images/icon128.png"
+  },
+  "commands": {
+    "open_media": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+U",
+        "mac": "Command+Shift+U"
+      },
+      "description": "Open media in new tab"
+    },
+    "save_media": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "Save media file"
+    },
+    "copy_media_url": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+C",
+        "mac": "Command+Shift+C"
+      },
+      "description": "Copy media URL to clipboard"
+    }
+  }
+}
